@@ -59,7 +59,7 @@ import ozonisasi1 from "@/app/image/ozonisasi1.png";export const PROFILE_DATA = 
       image: ozonisasi1,
       tags: ["IoT", "ESP32", "C++", "MQTT", "NodeJS"],
       demoUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/arifindzaki/MonitoringSterilisasiOzoneWater"
     },
     {
       id: 3,

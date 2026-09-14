@@ -65,7 +65,7 @@ const PROFILE_DATA = {
         "Sistem otomasi kamar sterilisasi apel berbasis Ozon menggunakan sensor gas, microcontroller ESP32, dan integrasi monitoring waktu nyata lewat aplikasi web dashboard.",
       image: ozonisasi1,
       tags: ["IoT", "ESP32", "C++", "MQTT", "NodeJS"],
-      githubUrl: "#"
+      githubUrl: "https://github.com/arifindzaki/MonitoringSterilisasiOzoneWater"
     },
     {
       id: 3,
