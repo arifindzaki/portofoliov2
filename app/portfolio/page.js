@@ -111,6 +111,45 @@ export default function PortfolioPage() {
           (p) => p.category.toLowerCase() === filter.toLowerCase()
         );
 
+  const renderProjectCard = (project) => (
+    <div
+      key={project.id}
+      onClick={() => setSelectedProject(project)}
+      className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
+    >
+      <div>
+        <div
+          className={`relative overflow-hidden bg-slate-900 ${
+            project.id === 2 ? 'h-[420px] md:h-[520px]' : 'h-48'
+          }`}
+        >
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-contain transition-transform duration-500"
+          />
+        </div>
+
+        <div className="p-5 text-left space-y-2.5">
+          <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+            {project.title}
+          </h3>
+
+          <p className="text-slate-400 text-xs sm:text-sm line-clamp-2 leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="p-5 pt-0 text-left">
+        <span className="inline-block px-3 py-1 rounded-md text-[11px] font-medium bg-blue-950/70 text-blue-400 border border-blue-800/40">
+          {project.tech}
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <section className="py-12 bg-[#0B0F17] min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -144,49 +183,20 @@ export default function PortfolioPage() {
 
         {}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
-            >
-              <div>
-                <div className="relative h-48 overflow-hidden bg-slate-900">
-  <Image
-    src={project.image}
-    alt={project.title}
-    fill
-    className="object-contain transition-transform duration-500"
-  />
-</div>
-                {/* <div className="relative h-48 overflow-hidden bg-slate-900">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div> */}
-
-                <div className="p-5 text-left space-y-2.5">
-                  <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-slate-400 text-xs sm:text-sm line-clamp-2 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filter === 'All' ? (
+            <>
+              <div className="space-y-6">
+                {PROFILE_DATA.projects
+                  .filter((project) => project.id === 1 || project.id === 4)
+                  .map(renderProjectCard)}
               </div>
-
-              <div className="p-5 pt-0 text-left">
-                <span className="inline-block px-3 py-1 rounded-md text-[11px] font-medium bg-blue-950/70 text-blue-400 border border-blue-800/40">
-                  {project.tech}
-                </span>
-              </div>
-            </div>
-          ))}
+              {renderProjectCard(PROFILE_DATA.projects.find((project) => project.id === 2))}
+              {renderProjectCard(PROFILE_DATA.projects.find((project) => project.id === 3))}
+            </>
+          ) : (
+            filteredProjects.map(renderProjectCard)
+          )}
         </div>
 
       </div>
