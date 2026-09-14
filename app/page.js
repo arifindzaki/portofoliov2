@@ -2,6 +2,9 @@
 import Image from 'next/image';
 import fotoSaya from './image/fotosaya.png';
 import { PROFILE_DATA as PORTFOLIO_DATA } from './data/portfolioData';
+import AboutPage from './about/page';
+import PortfolioPage from './portfolio/page';
+import ContactPage from './contact/page';
 import React, { useState } from 'react';
 import { 
   Mail, 
@@ -106,7 +109,7 @@ export default function HomePage() {
     <div className="space-y-12 pb-16">
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-8 pb-20 lg:py-24 bg-gradient-to-b from-[#0B0F17] via-[#0D1321] to-[#0B0F17]">
+      <section id="home" className="relative scroll-mt-20 overflow-hidden pt-8 pb-20 lg:py-24 bg-gradient-to-b from-[#0B0F17] via-[#0D1321] to-[#0B0F17]">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 left-10 w-72 h-72 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -216,7 +219,7 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold text-white">Portfolio Terkini</h2>
             <div className="w-10 h-1 bg-blue-500 rounded-full mt-2" />
           </div>
-          <Link href="/portfolio" className="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+          <Link href="/#portfolio" className="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
             Lihat Semua <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -247,8 +250,19 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
       {/* Project Detail Modal */}
+
+                <section id="about" className="scroll-mt-20">
+                  <AboutPage />
+                </section>
+
+                <section id="portfolio" className="scroll-mt-20">
+                  <PortfolioPage />
+                </section>
+
+                <section id="contact" className="scroll-mt-20">
+                  <ContactPage />
+                </section>
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
           <div className="relative w-full max-w-2xl bg-[#121826] border border-slate-800 rounded-2xl overflow-hidden p-6 text-left">

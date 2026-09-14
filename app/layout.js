@@ -1,20 +1,20 @@
 import React from 'react';
+import Link from 'next/link';
 
 // In your local Next.js project folder, you can keep:
 import './globals.css';
-import Navbar from './components/Navbar';
 
 const DefaultNavbar = () => (
   <nav className="sticky top-0 z-50 bg-[#0B0F17]/90 backdrop-blur-md border-b border-slate-800/80 py-4 px-6">
     <div className="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="/" className="text-2xl font-bold text-white tracking-wider">
+      <Link href="/#home" className="text-2xl font-bold text-white tracking-wider">
         A<span className="text-blue-500">.</span>
-      </a>
+      </Link>
       <div className="flex items-center space-x-6 text-sm font-medium text-slate-300">
-        <a href="/" className="hover:text-white transition-colors">Home</a>
-        <a href="/about" className="hover:text-white transition-colors">About Me</a>
-        <a href="/portfolio" className="hover:text-white transition-colors">Portfolio</a>
-        <a href="/contact" className="hover:text-white transition-colors">Contact</a>
+        <Link href="/#home" className="hover:text-white transition-colors">Home</Link>
+        <Link href="/#about" className="hover:text-white transition-colors">About Me</Link>
+        <Link href="/#portfolio" className="hover:text-white transition-colors">Portfolio</Link>
+        <Link href="/#contact" className="hover:text-white transition-colors">Contact</Link>
       </div>
     </div>
   </nav>
