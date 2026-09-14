@@ -1,6 +1,5 @@
 import { GraduationCap, Briefcase, Code2, Target } from 'lucide-react';
-
-export const PROFILE_DATA = {
+import ozonisasi1 from "@/app/image/ozonisasi1.png";export const PROFILE_DATA = {
   name: "Arifin",
   role: "Frontend & Fullstack Developer",
   shortBio: "Saya membangun aplikasi web modern dan mobile yang cepat, responsif, dan user friendly.",
@@ -45,7 +44,7 @@ export const PROFILE_DATA = {
       tech: "Flutter",
       description: "Aplikasi kasir berbasis Flutter untuk memudahkan transaksi penjualan.",
       longDescription: "BICOPI POS adalah sistem Point of Sale lengkap dengan fitur manajemen stok barang, riwayat transaksi harian, cetak struk Bluetooth, dan laporan keuangan interaktif.",
-      image: "https://images.unsplash.com/photo-1556742049-0a670fc80799?auto=format&fit=crop&w=800&q=80",
+      image: "/image/bicopi2.png",
       tags: ["Flutter", "Dart", "SQLite", "REST API"],
       demoUrl: "#",
       githubUrl: "#"
@@ -57,7 +56,7 @@ export const PROFILE_DATA = {
       tech: "IoT",
       description: "Sistem sterilisasi buah apel berbasis IoT dengan kontrol durasi ozonisasi.",
       longDescription: "Sistem otomasi kamar sterilisasi apel berbasis Ozon menggunakan sensor gas, microcontroller ESP32, dan integrasi monitoring waktu nyata lewat aplikasi web dashboard.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      image: ozonisasi1,
       tags: ["IoT", "ESP32", "C++", "MQTT", "NodeJS"],
       demoUrl: "#",
       githubUrl: "#"
