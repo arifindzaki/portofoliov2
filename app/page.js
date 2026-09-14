@@ -1,12 +1,12 @@
 'use client';
 import Image from 'next/image';
 import fotoSaya from './image/fotosaya.png';
+import { PROFILE_DATA as PORTFOLIO_DATA } from './data/portfolioData';
 import React, { useState } from 'react';
 import { 
   Mail, 
   ArrowRight, 
   Sparkles,
-  ExternalLink,
   X 
 } from 'lucide-react';
 
@@ -222,14 +222,19 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {PROFILE_DATA.projects.slice(0, 3).map((project) => (
+          {PORTFOLIO_DATA.projects.slice(0, 3).map((project) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
               className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer hover:-translate-y-1 shadow-lg"
             >
               <div className="relative h-44 overflow-hidden bg-slate-900">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="p-5 text-left space-y-2">
                 <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors">{project.title}</h3>
@@ -253,8 +258,13 @@ export default function HomePage() {
             <h3 className="text-xl font-bold text-white mb-2">{selectedProject.title}</h3>
             <p className="text-slate-300 text-sm leading-relaxed mb-4">{selectedProject.longDescription}</p>
             <div className="flex gap-3">
-              <a href={selectedProject.demoUrl} className="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5">
-                <span>Demo</span> <ExternalLink className="w-3.5 h-3.5" />
+              <a
+                href={selectedProject.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
+              >
+                <span>Repository</span> <GithubIcon />
               </a>
             </div>
           </div>
