@@ -1,5 +1,13 @@
 import { GraduationCap, Briefcase, Code2, Target } from 'lucide-react';
-import ozonisasi1 from "@/app/image/ozonisasi1.png";export const PROFILE_DATA = {
+import bicopi from "@/app/image/bicopi.png";
+import bicopi1 from "@/app/image/bicopi1.png";
+import bicopi2 from "@/app/image/bicopi2.png";
+import ozonisasi1 from "@/app/image/ozonisasi1.png";
+import ozonisasi2 from "@/app/image/ozonisasi2.png";
+import ozonisasi3 from "@/app/image/ozonisasi3.png";
+import ozonisasi4 from "@/app/image/ozonisasi4.png";
+
+export const PROFILE_DATA = {
   name: "Arifin",
   role: "Frontend & Fullstack Developer",
   shortBio: "Saya membangun aplikasi web modern dan mobile yang cepat, responsif, dan user friendly.",
@@ -44,10 +52,11 @@ import ozonisasi1 from "@/app/image/ozonisasi1.png";export const PROFILE_DATA = 
       tech: "Flutter",
       description: "Aplikasi kasir berbasis Flutter untuk memudahkan transaksi penjualan.",
       longDescription: "BICOPI POS adalah sistem Point of Sale lengkap dengan fitur manajemen stok barang, riwayat transaksi harian, cetak struk Bluetooth, dan laporan keuangan interaktif.",
-      image: "/image/bicopi2.png",
+      image: bicopi,
+      images: [bicopi, bicopi1, bicopi2],
       tags: ["Flutter", "Dart", "SQLite", "REST API"],
       demoUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/AkbarIlham20st/BicoopisMobile"
     },
     {
       id: 2,
@@ -57,6 +66,7 @@ import ozonisasi1 from "@/app/image/ozonisasi1.png";export const PROFILE_DATA = 
       description: "Sistem sterilisasi buah apel berbasis IoT dengan kontrol durasi ozonisasi.",
       longDescription: "Sistem otomasi kamar sterilisasi apel berbasis Ozon menggunakan sensor gas, microcontroller ESP32, dan integrasi monitoring waktu nyata lewat aplikasi web dashboard.",
       image: ozonisasi1,
+      images: [ozonisasi1, ozonisasi2, ozonisasi3, ozonisasi4],
       tags: ["IoT", "ESP32", "C++", "MQTT", "NodeJS"],
       demoUrl: "#",
       githubUrl: "https://github.com/arifindzaki/MonitoringSterilisasiOzoneWater"

@@ -1,8 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import bicopi from '../image/bicopi.png';
+import bicopi1 from '../image/bicopi1.png';
+import bicopi2 from '../image/bicopi2.png';
 import ozonisasi1 from '../image/ozonisasi1.png';
+import ozonisasi2 from '../image/ozonisasi2.png';
+import ozonisasi3 from '../image/ozonisasi3.png';
+import ozonisasi4 from '../image/ozonisasi4.png';
 
 const GithubIcon = (props) => (
   <svg
@@ -49,10 +55,10 @@ const PROFILE_DATA = {
         "Aplikasi kasir berbasis Flutter untuk memudahkan transaksi penjualan.",
       longDescription:
         "BICOPI POS adalah sistem Point of Sale lengkap dengan fitur manajemen stok barang, riwayat transaksi harian, cetak struk Bluetooth, dan laporan keuangan interaktif.",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0a670fc80799?auto=format&fit=crop&w=800&q=80",
+      image: bicopi,
+      images: [bicopi, bicopi1, bicopi2],
       tags: ["Flutter", "Dart", "SQLite", "REST API"],
-      githubUrl: "#"
+      githubUrl: "https://github.com/AkbarIlham20st/BicoopisMobile"
     },
     {
       id: 2,
@@ -64,6 +70,7 @@ const PROFILE_DATA = {
       longDescription:
         "Sistem otomasi kamar sterilisasi apel berbasis Ozon menggunakan sensor gas, microcontroller ESP32, dan integrasi monitoring waktu nyata lewat aplikasi web dashboard.",
       image: ozonisasi1,
+      images: [ozonisasi1, ozonisasi2, ozonisasi3, ozonisasi4],
       tags: ["IoT", "ESP32", "C++", "MQTT", "NodeJS"],
       githubUrl: "https://github.com/arifindzaki/MonitoringSterilisasiOzoneWater"
     },
@@ -101,8 +108,44 @@ const PROFILE_DATA = {
 export default function PortfolioPage() {
   const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const categories = ['All', 'Web', 'Mobile', 'IoT'];
+
+  const selectedImages = selectedProject
+    ? selectedProject.images || [selectedProject.image]
+    : [];
+
+  useEffect(() => {
+    if (!selectedProject || selectedImages.length < 2) {
+      return undefined;
+    }
+
+    const interval = setInterval(() => {
+      setActiveImageIndex((currentIndex) =>
+        (currentIndex + 1) % selectedImages.length
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [selectedProject, selectedImages.length]);
+
+  const showPreviousImage = () => {
+    setActiveImageIndex((currentIndex) =>
+      currentIndex === 0 ? selectedImages.length - 1 : currentIndex - 1
+    );
+  };
+
+  const showNextImage = () => {
+    setActiveImageIndex((currentIndex) =>
+      (currentIndex + 1) % selectedImages.length
+    );
+  };
+
+  const openProject = (project) => {
+    setActiveImageIndex(0);
+    setSelectedProject(project);
+  };
 
   const filteredProjects =
     filter === 'All'
@@ -114,7 +157,7 @@ export default function PortfolioPage() {
   const renderProjectCard = (project) => (
     <div
       key={project.id}
-      onClick={() => setSelectedProject(project)}
+      onClick={() => openProject(project)}
       className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
     >
       <div>
@@ -205,7 +248,7 @@ export default function PortfolioPage() {
 
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
-          <div className="relative w-full max-w-2xl bg-[#121826] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl text-left">
+          <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#121826] border border-slate-800 rounded-2xl shadow-2xl text-left grid grid-cols-1 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900/80 text-slate-400 hover:text-white border border-slate-700 transition-colors"
@@ -213,18 +256,7 @@ export default function PortfolioPage() {
               <CloseIcon />
             </button>
 
-            <div className="relative h-60 bg-slate-900 overflow-hidden">
-            <Image
-  src={selectedProject.image}
-  alt={selectedProject.title}
-  fill
-  className="w-full h-full object-contain"
-/>
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121826] via-transparent to-transparent" />
-            </div>
-
-            <div className="p-6 space-y-4">
+            <div className="order-1 p-5 space-y-3 lg:order-1 lg:p-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold text-white">
                   {selectedProject.title}
@@ -235,11 +267,11 @@ export default function PortfolioPage() {
                 </span>
               </div>
 
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-300 text-sm leading-6">
                 {selectedProject.longDescription}
               </p>
 
-              <div className="space-y-2 pt-2">
+              <div className="space-y-2 pt-1">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   Teknologi:
                 </h4>
@@ -269,6 +301,36 @@ export default function PortfolioPage() {
                   <GithubIcon />
                 </a>
               </div>
+            </div>
+
+            <div className="relative order-2 min-h-[26rem] bg-slate-900 overflow-hidden lg:order-2 lg:min-h-[36rem]">
+              <Image
+                src={selectedImages[activeImageIndex]}
+                alt={`${selectedProject.title} afbeelding ${activeImageIndex + 1}`}
+                fill
+                className="w-full h-full object-contain"
+              />
+
+              {selectedImages.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPreviousImage}
+                    aria-label="Gambar sebelumnya"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/80 px-3 py-2 text-2xl text-white hover:bg-blue-600 transition-colors"
+                  >
+                    &#8592;
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextImage}
+                    aria-label="Gambar berikutnya"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/80 px-3 py-2 text-2xl text-white hover:bg-blue-600 transition-colors"
+                  >
+                    &#8594;
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
