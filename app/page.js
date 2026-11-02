@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import fotoSaya from './image/fotosaya.png';
+import webdevbnsp from './image/webdevbnsp.jpg';
 import { PROFILE_DATA as PORTFOLIO_DATA } from './data/portfolioData';
 import AboutPage from './about/page';
 import PortfolioPage from './portfolio/page';
@@ -62,38 +63,7 @@ const PROFILE_DATA = {
     /* -------------------------------------------------------------------------- */
     whatsapp: "https://wa.me/6285706514913?text=Halo%20Arif,%20saya%20tertarik%20untuk%20berdiskusi%20mengenai%20proyek."
   },
-  projects: [
-    {
-      id: 1,
-      title: "BICOPI POS",
-      category: "Mobile",
-      tech: "Flutter",
-      description: "Aplikasi kasir berbasis Flutter untuk memudahkan transaksi penjualan.",
-      longDescription: "BICOPI POS adalah sistem Point of Sale lengkap dengan fitur manajemen stok barang, riwayat transaksi harian, cetak struk Bluetooth, dan laporan keuangan interaktif.",
-      image: "https://images.unsplash.com/photo-1556742049-0a670fc80799?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "#"
-    },
-    {
-      id: 2,
-      title: "IoT Sterilisasi Apel",
-      category: "IoT",
-      tech: "IoT",
-      description: "Sistem sterilisasi buah apel berbasis IoT dengan kontrol durasi ozonisasi.",
-      longDescription: "Sistem otomasi kamar sterilisasi apel berbasis Ozon menggunakan sensor gas, microcontroller ESP32, dan integrasi monitoring waktu nyata lewat aplikasi web dashboard.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "#"
-    },
-    {
-      id: 3,
-      title: "Dashboard Admin",
-      category: "Web",
-      tech: "Laravel",
-      description: "Dashboard admin untuk manajemen data dan monitoring sistem.",
-      longDescription: "Dashboard administratif modern lengkap dengan manajemen pengguna, analitik penjualan terintegrasi chart interaktif, ekspor PDF/Excel, dan sistem otorisasi peran.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "#"
-    }
-  ]
+  projects: PORTFOLIO_DATA.projects
 };
 
 const Link = ({ href, children, className }) => (
@@ -104,6 +74,9 @@ const Link = ({ href, children, className }) => (
 
 export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const latestProjects = [1, 3, 2]
+    .map((id) => PORTFOLIO_DATA.projects.find((project) => project.id === id))
+    .filter(Boolean);
 
   return (
     <div className="space-y-12 pb-16">
@@ -212,6 +185,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Web Developer Certification */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl border border-slate-800 bg-[#121826] shadow-lg">
+          <div className="relative h-[28rem] bg-slate-950/60 p-4 sm:h-[34rem]">
+            <Image
+              src={webdevbnsp}
+              alt="Sertifikat kompetensi Pengembang Web dari BNSP"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-contain p-4"
+            />
+          </div>
+          <div className="flex flex-col justify-center p-6 text-left sm:p-8">
+            <span className="mb-3 w-fit rounded-full border border-blue-500/30 bg-blue-600/10 px-3 py-1 text-xs font-semibold text-blue-400">
+              Sertifikasi Kompetensi
+            </span>
+            <h2 className="text-2xl font-bold text-white">
+              Web Developer BNSP
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-400">
+              Sertifikat kompetensi Pengembang Web dari Badan Nasional
+              Sertifikasi Profesi (BNSP), yang diterbitkan melalui LSP
+              Politeknik Negeri Jember. Sertifikasi ini menjadi bukti
+              kompetensi saya di bidang pengembangan web.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Portfolio Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="flex items-center justify-between mb-8">
@@ -225,13 +227,19 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {PORTFOLIO_DATA.projects.slice(0, 3).map((project) => (
+          {latestProjects.map((project) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
               className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer hover:-translate-y-1 shadow-lg"
             >
-              <div className="relative h-44 overflow-hidden bg-slate-900">
+              <div
+                className={`relative overflow-hidden bg-slate-900 ${
+                  project.imageOrientation === 'portrait'
+                    ? 'h-[420px] md:h-[520px]'
+                    : 'h-44'
+                }`}
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -272,14 +280,26 @@ export default function HomePage() {
             <h3 className="text-xl font-bold text-white mb-2">{selectedProject.title}</h3>
             <p className="text-slate-300 text-sm leading-relaxed mb-4">{selectedProject.longDescription}</p>
             <div className="flex gap-3">
-              <a
-                href={selectedProject.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
-              >
-                <span>Repository</span> <GithubIcon />
-              </a>
+              {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
+                <a
+                  href={selectedProject.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
+                >
+                  <span>Repository</span> <GithubIcon />
+                </a>
+              )}
+              {selectedProject.demoUrl && selectedProject.demoUrl !== "#" && (
+                <a
+                  href={selectedProject.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-violet-600 text-white rounded-lg text-xs font-semibold"
+                >
+                  Video Demo
+                </a>
+              )}
             </div>
           </div>
         </div>

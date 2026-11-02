@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17213B"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" rx="28" fill="url(#background)"/>
+  <rect x="24" y="24" width="1392" height="852" rx="20" fill="#0D1426" stroke="#303B59" stroke-width="2"/>
+  <rect x="24" y="24" width="252" height="852" rx="20" fill="#121B31"/>
+  <path d="M256 24h20v852h-20z" fill="#121B31"/>
+  <rect x="54" y="52" width="44" height="44" rx="13" fill="url(#accent)"/>
+  <path d="m66 66 10-5 10 5v8c0 7-5 12-10 15-5-3-10-8-10-15v-8Z" stroke="white" stroke-width="2"/>
+  <path d="m72 74 3 3 6-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="110" y="72" fill="#F8FAFC" font-family="Arial,sans-serif" font-size="16" font-weight="700">LPK ILMIAH</text>
+  <text x="110" y="91" fill="#98A5BE" font-family="Arial,sans-serif" font-size="10">LEARNING CENTER</text>
+  <text x="54" y="151" fill="#74819D" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MENU BELAJAR</text>
+  <rect x="43" y="168" width="210" height="48" rx="10" fill="#302B62"/>
+  <rect x="60" y="183" width="17" height="17" rx="4" fill="#A78BFA"/>
+  <text x="89" y="196" fill="#F8FAFC" font-family="Arial,sans-serif" font-size="13" font-weight="600">Dashboard</text>
+  <rect x="61" y="240" width="16" height="16" rx="4" fill="#3B4864"/>
+  <text x="89" y="253" fill="#B5C0D4" font-family="Arial,sans-serif" font-size="13">Kelas Saya</text>
+  <rect x="61" y="289" width="16" height="16" rx="4" fill="#3B4864"/>
+  <text x="89" y="302" fill="#B5C0D4" font-family="Arial,sans-serif" font-size="13">Materi Belajar</text>
+  <rect x="61" y="338" width="16" height="16" rx="4" fill="#3B4864"/>
+  <text x="89" y="351" fill="#B5C0D4" font-family="Arial,sans-serif" font-size="13">Progress Belajar</text>
+  <circle cx="75" cy="820" r="18" fill="#302B62"/>
+  <text x="69" y="825" fill="#DDD6FE" font-family="Arial,sans-serif" font-size="11" font-weight="700">DA</text>
+  <text x="105" y="817" fill="#E2E8F0" font-family="Arial,sans-serif" font-size="12" font-weight="600">Peserta Belajar</text>
+  <text x="105" y="835" fill="#74819D" font-family="Arial,sans-serif" font-size="10">Program pelatihan</text>
+  <text x="314" y="78" fill="#F8FAFC" font-family="Arial,sans-serif" font-size="24" font-weight="700">Selamat datang di LPK Ilmiah</text>
+  <text x="314" y="106" fill="#98A5BE" font-family="Arial,sans-serif" font-size="13">Lanjutkan belajar dan kembangkan keterampilan Anda</text>
+  <rect x="1197" y="55" width="176" height="42" rx="10" fill="#151F35" stroke="#303B59"/>
+  <circle cx="1220" cy="76" r="13" fill="#302B62"/>
+  <text x="1216" y="80" fill="#DDD6FE" font-family="Arial,sans-serif" font-size="10" font-weight="700">D</text>
+  <text x="1243" y="81" fill="#CFD7E6" font-family="Arial,sans-serif" font-size="11">Akun Peserta</text>
+  <rect x="314" y="142" width="1059" height="206" rx="16" fill="#1C2342" stroke="#363B68"/>
+  <circle cx="1242" cy="237" r="82" fill="#5045A0" fill-opacity=".26"/>
+  <circle cx="1290" cy="184" r="42" fill="#8275E7" fill-opacity=".15"/>
+  <text x="344" y="186" fill="#C4B5FD" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">RUANG BELAJAR DIGITAL</text>
+  <text x="344" y="229" fill="#F8FAFC" font-family="Arial,sans-serif" font-size="26" font-weight="700">Belajar, berlatih, dan siap berkarya</text>
+  <text x="344" y="257" fill="#B5B8D2" font-family="Arial,sans-serif" font-size="13">Akses materi pelatihan dan pantau perjalanan belajar Anda</text>
+  <rect x="344" y="283" width="146" height="39" rx="9" fill="#7162D9"/>
+  <text x="369" y="308" fill="white" font-family="Arial,sans-serif" font-size="11" font-weight="600">Lanjutkan Belajar</text>
+  <rect x="1257" y="215" width="47" height="61" rx="7" fill="#DDD6FE"/>
+  <path d="M1268 229h24M1268 239h24M1268 249h17" stroke="#7569C5" stroke-width="2" stroke-linecap="round"/>
+  <path d="m1240 261 39-39 19 19-39 39-23 4 4-23Z" fill="#A78BFA"/>
+  <text x="314" y="397" fill="#F1F5F9" font-family="Arial,sans-serif" font-size="17" font-weight="700">Program Pembelajaran</text>
+  <text x="314" y="420" fill="#74819D" font-family="Arial,sans-serif" font-size="11">Pilih materi untuk memulai atau melanjutkan kelas</text>
+  <rect x="314" y="443" width="336" height="244" rx="14" fill="#141E33" stroke="#303B59"/>
+  <rect x="330" y="459" width="304" height="112" rx="10" fill="#252954"/>
+  <rect x="349" y="481" width="37" height="37" rx="10" fill="#6558C9"/>
+  <path d="M359 490h17v18h-17zM363 486h17v18" stroke="#EDE9FE" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M402 530c16-25 34-32 53-18 17 13 32 12 53-5 23-19 38-18 64 1" stroke="#A78BFA" stroke-width="3" stroke-linecap="round"/>
+  <text x="333" y="600" fill="#E2E8F0" font-family="Arial,sans-serif" font-size="14" font-weight="700">Dasar Komputer</text>
+  <text x="333" y="621" fill="#8996AE" font-family="Arial,sans-serif" font-size="10">Materi pengenalan dan keterampilan dasar</text>
+  <rect x="333" y="642" width="254" height="7" rx="3.5" fill="#303B59"/>
+  <rect x="333" y="642" width="165" height="7" rx="3.5" fill="#8B7CF6"/>
+  <text x="597" y="650" fill="#B5B8D2" font-family="Arial,sans-serif" font-size="9">65%</text>
+  <rect x="675" y="443" width="336" height="244" rx="14" fill="#141E33" stroke="#303B59"/>
+  <rect x="691" y="459" width="304" height="112" rx="10" fill="#193449"/>
+  <circle cx="768" cy="514" r="29" fill="#1F5970"/>
+  <path d="M758 514h20M768 504v20" stroke="#67E8F9" stroke-width="3" stroke-linecap="round"/>
+  <path d="M826 533c22-38 40-28 55-16 14 12 31 8 48-15" stroke="#67E8F9" stroke-width="3" stroke-linecap="round"/>
+  <text x="694" y="600" fill="#E2E8F0" font-family="Arial,sans-serif" font-size="14" font-weight="700">Pengembangan Web</text>
+  <text x="694" y="621" fill="#8996AE" font-family="Arial,sans-serif" font-size="10">Pengenalan teknologi dan praktik web</text>
+  <rect x="694" y="642" width="254" height="7" rx="3.5" fill="#303B59"/>
+  <rect x="694" y="642" width="101" height="7" rx="3.5" fill="#38BDF8"/>
+  <text x="958" y="650" fill="#B5B8D2" font-family="Arial,sans-serif" font-size="9">40%</text>
+  <rect x="1036" y="443" width="337" height="244" rx="14" fill="#141E33" stroke="#303B59"/>
+  <rect x="1052" y="459" width="305" height="112" rx="10" fill="#3B2A3D"/>
+  <circle cx="1124" cy="513" r="28" fill="#6F3E64"/>
+  <path d="M1110 514c5-11 21-11 27 0-5 11-22 11-27 0Z" stroke="#F0ABFC" stroke-width="2"/>
+  <circle cx="1123" cy="514" r="4" fill="#F0ABFC"/>
+  <path d="M1172 530h151M1172 516h123M1172 502h137" stroke="#D8A4D0" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  <text x="1055" y="600" fill="#E2E8F0" font-family="Arial,sans-serif" font-size="14" font-weight="700">Keterampilan Digital</text>
+  <text x="1055" y="621" fill="#8996AE" font-family="Arial,sans-serif" font-size="10">Belajar melalui materi dan latihan</text>
+  <rect x="1055" y="642" width="254" height="7" rx="3.5" fill="#303B59"/>
+  <rect x="1055" y="642" width="51" height="7" rx="3.5" fill="#E879F9"/>
+  <text x="1319" y="650" fill="#B5B8D2" font-family="Arial,sans-serif" font-size="9">20%</text>
+  <rect x="314" y="711" width="1059" height="112" rx="14" fill="#141E33" stroke="#303B59"/>
+  <text x="340" y="747" fill="#F1F5F9" font-family="Arial,sans-serif" font-size="14" font-weight="700">Aktivitas Belajar</text>
+  <text x="340" y="771" fill="#8996AE" font-family="Arial,sans-serif" font-size="11">Lihat progres materi dan kelola kelas pembelajaran dalam satu platform.</text>
+  <rect x="1117" y="739" width="225" height="47" rx="10" fill="#211F42"/>
+  <text x="1140" y="759" fill="#AFA6F9" font-family="Arial,sans-serif" font-size="10">PROGRES MINGGU INI</text>
+  <text x="1140" y="777" fill="#F1F5F9" font-family="Arial,sans-serif" font-size="12" font-weight="700">4 materi diselesaikan</text>
+</svg>

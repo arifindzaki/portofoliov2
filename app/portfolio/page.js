@@ -58,6 +58,7 @@ const PROFILE_DATA = {
       image: bicopi,
       images: [bicopi, bicopi1, bicopi2],
       tags: ["Flutter", "Dart", "SQLite", "REST API"],
+      imageOrientation: "portrait",
       githubUrl: "https://github.com/AkbarIlham20st/BicoopisMobile"
     },
     {
@@ -72,34 +73,62 @@ const PROFILE_DATA = {
       image: ozonisasi1,
       images: [ozonisasi1, ozonisasi2, ozonisasi3, ozonisasi4],
       tags: ["IoT", "ESP32", "C++", "MQTT", "NodeJS"],
+      imageOrientation: "portrait",
       githubUrl: "https://github.com/arifindzaki/MonitoringSterilisasiOzoneWater"
     },
     {
       id: 3,
-      title: "Dashboard Admin",
+      title: "Website Operasional Perusahaan",
       category: "Web",
       tech: "Laravel",
       description:
-        "Dashboard admin untuk manajemen data dan monitoring sistem.",
+        "Sistem operasional perusahaan untuk mengelola maintenance mesin, approval pengajuan surat, dan memantau data mesin dari PLC.",
       longDescription:
-        "Dashboard administratif modern lengkap dengan manajemen pengguna, analitik penjualan terintegrasi chart interaktif, ekspor PDF/Excel, dan sistem otorisasi peran.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      tags: ["Laravel", "Tailwind CSS", "MySQL", "Chart.js"],
+        "Website operasional perusahaan ini membantu tim mengelola data dan jadwal maintenance mesin, mengajukan serta meninjau surat melalui alur approval, dan memantau status serta parameter mesin secara real-time dari PLC. Satu dashboard menyatukan informasi operasional agar kondisi mesin dan tindak lanjutnya lebih mudah dipantau.",
+      image: "/operational-dashboard.svg",
+      tags: ["Laravel", "Tailwind CSS", "MySQL", "PLC Monitoring", "Approval"],
       githubUrl: "#"
     },
     {
       id: 4,
-      title: "Smart Greenhouse App",
+      title: "Monitoring Penyiraman Otomatis",
       category: "IoT",
-      tech: "React & IoT",
+      tech: "IoT & Web",
       description:
-        "Aplikasi monitoring dan kontrol otomatis suhu & kelembaban tanah perkebunan.",
+        "Sistem pemantauan kelembapan tanah dan penyiraman tanaman secara otomatis berdasarkan data sensor.",
       longDescription:
-        "Sistem pemantauan iklim mikro tanaman dengan peringatan dini otomatis saat kelembaban tanah turun di bawah ambang batas.",
-      image:
-        "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=800&q=80",
-      tags: ["React", "Firebase", "WebSockets"],
+        "Sistem monitoring penyiraman otomatis menampilkan data kelembapan tanah dari sensor, status katup air, dan jadwal penyiraman per area. Penyiraman dapat berjalan otomatis saat kelembapan turun dari ambang yang ditentukan, sementara kondisi tanaman dan aktivitas penyiraman dapat dipantau melalui dashboard.",
+      image: "/automatic-irrigation.svg",
+      tags: ["IoT", "Sensor Kelembapan", "Otomasi", "Monitoring"],
+      imageOrientation: "portrait",
+      githubUrl: "#"
+    },
+    {
+      id: 5,
+      title: "MSJ Trans - Sistem Rental Mobil",
+      category: "Web",
+      tech: "Web App",
+      description:
+        "Sistem pemesanan rental mobil untuk melihat pilihan kendaraan dan mengajukan jadwal sewa.",
+      longDescription:
+        "Sistem rental mobil MSJ Trans dirancang untuk membantu pelanggan melihat pilihan kendaraan, memilih tanggal dan lokasi penjemputan, lalu mengajukan pemesanan. Pengelola dapat meninjau permintaan sewa serta mengatur informasi kendaraan dan ketersediaannya.",
+      image: "/msj-trans-rental.svg",
+      tags: ["Rental Mobil", "Pemesanan Online", "Manajemen Kendaraan"],
+      githubUrl: "#"
+    },
+    {
+      id: 6,
+      title: "Aplikasi Pembelajaran LPK Ilmiah",
+      category: "Web",
+      tech: "Learning Platform",
+      description:
+        "Platform pembelajaran untuk mengakses materi pelatihan dan memantau progres belajar peserta LPK Ilmiah.",
+      longDescription:
+        "Aplikasi pembelajaran LPK Ilmiah menyediakan ruang belajar digital bagi peserta untuk mengakses materi pelatihan, melihat program pembelajaran, dan memantau progres belajar. Berikut tautan video demo aplikasi.",
+      image: "/lpk-ilmiah-learning.svg",
+      tags: ["E-Learning", "Manajemen Materi", "Progress Belajar"],
+      demoUrl:
+        "https://drive.google.com/drive/folders/1ylAznegytk6DvaMI8wAN1laLEk9ZS3AY?usp=sharing",
       githubUrl: "#"
     }
   ]
@@ -163,7 +192,9 @@ export default function PortfolioPage() {
       <div>
         <div
           className={`relative overflow-hidden bg-slate-900 ${
-            project.id === 2 ? 'h-[420px] md:h-[520px]' : 'h-48'
+            project.imageOrientation === 'portrait'
+              ? 'h-[420px] md:h-[520px]'
+              : 'h-48'
           }`}
         >
           <Image
@@ -227,19 +258,7 @@ export default function PortfolioPage() {
         {}
 
         <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filter === 'All' ? (
-            <>
-              <div className="space-y-6">
-                {PROFILE_DATA.projects
-                  .filter((project) => project.id === 1 || project.id === 4)
-                  .map(renderProjectCard)}
-              </div>
-              {renderProjectCard(PROFILE_DATA.projects.find((project) => project.id === 2))}
-              {renderProjectCard(PROFILE_DATA.projects.find((project) => project.id === 3))}
-            </>
-          ) : (
-            filteredProjects.map(renderProjectCard)
-          )}
+          {filteredProjects.map(renderProjectCard)}
         </div>
 
       </div>
@@ -291,15 +310,27 @@ export default function PortfolioPage() {
               {}
 
               <div className="flex items-center space-x-4 pt-4 border-t border-slate-800/80">
-                <a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors shadow-lg shadow-blue-600/20"
-                >
-                  <span>Repository</span>
-                  <GithubIcon />
-                </a>
+                {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors shadow-lg shadow-blue-600/20"
+                  >
+                    <span>Repository</span>
+                    <GithubIcon />
+                  </a>
+                )}
+                {selectedProject.demoUrl && selectedProject.demoUrl !== "#" && (
+                  <a
+                    href={selectedProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold transition-colors shadow-lg shadow-violet-600/20"
+                  >
+                    <span>Video Demo</span>
+                  </a>
+                )}
               </div>
             </div>
 
