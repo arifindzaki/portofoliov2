@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import fotoSaya from './image/fotosaya.png';
 import webdevbnsp from './image/webdevbnsp.jpg';
+import ProjectCardImage from './components/ProjectCardImage';
 import { PROFILE_DATA as PORTFOLIO_DATA } from './data/portfolioData';
 import AboutPage from './about/page';
 import PortfolioPage from './portfolio/page';
@@ -226,12 +227,12 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 items-start md:grid-cols-3 gap-6">
           {latestProjects.map((project) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer hover:-translate-y-1 shadow-lg"
+              className="group h-fit bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all cursor-pointer hover:-translate-y-1 shadow-lg"
             >
               <div
                 className={`relative overflow-hidden bg-slate-900 ${
@@ -240,10 +241,10 @@ export default function HomePage() {
                     : 'h-44'
                 }`}
               >
-                <Image
+                <ProjectCardImage
                   src={project.image}
+                  images={project.images}
                   alt={project.title}
-                  fill
                   className="object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

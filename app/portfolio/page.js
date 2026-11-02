@@ -9,6 +9,20 @@ import ozonisasi1 from '../image/ozonisasi1.png';
 import ozonisasi2 from '../image/ozonisasi2.png';
 import ozonisasi3 from '../image/ozonisasi3.png';
 import ozonisasi4 from '../image/ozonisasi4.png';
+import lpk1 from '../image/lpk1.jpg';
+import lpk2 from '../image/lpk2.jpg';
+import lpk3 from '../image/lpk3.jpg';
+import lpk4 from '../image/lpk4.jpg';
+import hujan1 from '../image/hujan1.jpeg';
+import hujan2 from '../image/hujan2.jpeg';
+import hujan3 from '../image/hujan3.jpeg';
+import msj1 from '../image/msj1.jpeg';
+import msj2 from '../image/msj2.jpeg';
+import msj3 from '../image/msj3.jpeg';
+import msj4 from '../image/msj4.jpeg';
+import msj5 from '../image/msj5.jpeg';
+import msj6 from '../image/msj6.jpeg';
+import ProjectCardImage from '../components/ProjectCardImage';
 
 const GithubIcon = (props) => (
   <svg
@@ -87,6 +101,7 @@ const PROFILE_DATA = {
         "Website operasional perusahaan ini membantu tim mengelola data dan jadwal maintenance mesin, mengajukan serta meninjau surat melalui alur approval, dan memantau status serta parameter mesin secara real-time dari PLC. Satu dashboard menyatukan informasi operasional agar kondisi mesin dan tindak lanjutnya lebih mudah dipantau.",
       image: "/operational-dashboard.svg",
       tags: ["Laravel", "Tailwind CSS", "MySQL", "PLC Monitoring", "Approval"],
+      imageOrientation: "landscape",
       githubUrl: "#"
     },
     {
@@ -98,7 +113,8 @@ const PROFILE_DATA = {
         "Sistem pemantauan kelembapan tanah dan penyiraman tanaman secara otomatis berdasarkan data sensor.",
       longDescription:
         "Sistem monitoring penyiraman otomatis menampilkan data kelembapan tanah dari sensor, status katup air, dan jadwal penyiraman per area. Penyiraman dapat berjalan otomatis saat kelembapan turun dari ambang yang ditentukan, sementara kondisi tanaman dan aktivitas penyiraman dapat dipantau melalui dashboard.",
-      image: "/automatic-irrigation.svg",
+      image: hujan1,
+      images: [hujan1, hujan2, hujan3],
       tags: ["IoT", "Sensor Kelembapan", "Otomasi", "Monitoring"],
       imageOrientation: "portrait",
       githubUrl: "#"
@@ -106,27 +122,31 @@ const PROFILE_DATA = {
     {
       id: 5,
       title: "MSJ Trans - Sistem Rental Mobil",
-      category: "Web",
-      tech: "Web App",
+      category: "Mobile",
+      tech: "Mobile App",
       description:
-        "Sistem pemesanan rental mobil untuk melihat pilihan kendaraan dan mengajukan jadwal sewa.",
+        "Aplikasi pemesanan rental mobil untuk melihat pilihan kendaraan dan mengajukan jadwal sewa.",
       longDescription:
-        "Sistem rental mobil MSJ Trans dirancang untuk membantu pelanggan melihat pilihan kendaraan, memilih tanggal dan lokasi penjemputan, lalu mengajukan pemesanan. Pengelola dapat meninjau permintaan sewa serta mengatur informasi kendaraan dan ketersediaannya.",
-      image: "/msj-trans-rental.svg",
+        "Aplikasi mobile rental mobil MSJ Trans dirancang untuk membantu pelanggan melihat pilihan kendaraan, memilih tanggal dan lokasi penjemputan, lalu mengajukan pemesanan. Pengelola dapat meninjau permintaan sewa serta mengatur informasi kendaraan dan ketersediaannya.",
+      image: msj1,
+      images: [msj1, msj2, msj3, msj4, msj5, msj6],
       tags: ["Rental Mobil", "Pemesanan Online", "Manajemen Kendaraan"],
+      imageOrientation: "portrait",
       githubUrl: "#"
     },
     {
       id: 6,
       title: "Aplikasi Pembelajaran LPK Ilmiah",
-      category: "Web",
-      tech: "Learning Platform",
+      category: "Mobile",
+      tech: "Mobile App",
       description:
-        "Platform pembelajaran untuk mengakses materi pelatihan dan memantau progres belajar peserta LPK Ilmiah.",
+        "Aplikasi pembelajaran untuk mengakses materi pelatihan dan memantau progres belajar peserta LPK Ilmiah.",
       longDescription:
-        "Aplikasi pembelajaran LPK Ilmiah menyediakan ruang belajar digital bagi peserta untuk mengakses materi pelatihan, melihat program pembelajaran, dan memantau progres belajar. Berikut tautan video demo aplikasi.",
-      image: "/lpk-ilmiah-learning.svg",
+        "Aplikasi mobile pembelajaran LPK Ilmiah menyediakan ruang belajar digital bagi peserta untuk mengakses materi pelatihan, melihat program pembelajaran, dan memantau progres belajar. Berikut tautan video demo aplikasi.",
+      image: lpk1,
+      images: [lpk1, lpk2, lpk3, lpk4],
       tags: ["E-Learning", "Manajemen Materi", "Progress Belajar"],
+      imageOrientation: "portrait",
       demoUrl:
         "https://drive.google.com/drive/folders/1ylAznegytk6DvaMI8wAN1laLEk9ZS3AY?usp=sharing",
       githubUrl: "#"
@@ -187,7 +207,7 @@ export default function PortfolioPage() {
     <div
       key={project.id}
       onClick={() => openProject(project)}
-      className="group bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
+      className="group h-fit bg-[#121826] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
     >
       <div>
         <div
@@ -197,10 +217,10 @@ export default function PortfolioPage() {
               : 'h-48'
           }`}
         >
-          <Image
+          <ProjectCardImage
             src={project.image}
+            images={project.images}
             alt={project.title}
-            fill
             className="object-contain transition-transform duration-500"
           />
         </div>

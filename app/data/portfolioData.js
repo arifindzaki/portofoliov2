@@ -6,6 +6,19 @@ import ozonisasi1 from "@/app/image/ozonisasi1.png";
 import ozonisasi2 from "@/app/image/ozonisasi2.png";
 import ozonisasi3 from "@/app/image/ozonisasi3.png";
 import ozonisasi4 from "@/app/image/ozonisasi4.png";
+import lpk1 from "@/app/image/lpk1.jpg";
+import lpk2 from "@/app/image/lpk2.jpg";
+import lpk3 from "@/app/image/lpk3.jpg";
+import lpk4 from "@/app/image/lpk4.jpg";
+import hujan1 from "@/app/image/hujan1.jpeg";
+import hujan2 from "@/app/image/hujan2.jpeg";
+import hujan3 from "@/app/image/hujan3.jpeg";
+import msj1 from "@/app/image/msj1.jpeg";
+import msj2 from "@/app/image/msj2.jpeg";
+import msj3 from "@/app/image/msj3.jpeg";
+import msj4 from "@/app/image/msj4.jpeg";
+import msj5 from "@/app/image/msj5.jpeg";
+import msj6 from "@/app/image/msj6.jpeg";
 
 export const PROFILE_DATA = {
   name: "Arifin",
@@ -82,6 +95,7 @@ export const PROFILE_DATA = {
       longDescription: "Website operasional perusahaan ini membantu tim mengelola data dan jadwal maintenance mesin, mengajukan serta meninjau surat melalui alur approval, dan memantau status serta parameter mesin secara real-time dari PLC. Satu dashboard menyatukan informasi operasional agar kondisi mesin dan tindak lanjutnya lebih mudah dipantau.",
       image: "/operational-dashboard.svg",
       tags: ["Laravel", "Tailwind CSS", "MySQL", "PLC Monitoring", "Approval"],
+      imageOrientation: "landscape",
       demoUrl: "#",
       githubUrl: "#"
     },
@@ -92,7 +106,8 @@ export const PROFILE_DATA = {
       tech: "IoT & Web",
       description: "Sistem pemantauan kelembapan tanah dan penyiraman tanaman secara otomatis berdasarkan data sensor.",
       longDescription: "Sistem monitoring penyiraman otomatis menampilkan data kelembapan tanah dari sensor, status katup air, dan jadwal penyiraman per area. Penyiraman dapat berjalan otomatis saat kelembapan turun dari ambang yang ditentukan, sementara kondisi tanaman dan aktivitas penyiraman dapat dipantau melalui dashboard.",
-      image: "/automatic-irrigation.svg",
+      image: hujan1,
+      images: [hujan1, hujan2, hujan3],
       tags: ["IoT", "Sensor Kelembapan", "Otomasi", "Monitoring"],
       imageOrientation: "portrait",
       demoUrl: "#",
@@ -101,24 +116,28 @@ export const PROFILE_DATA = {
     {
       id: 5,
       title: "MSJ Trans - Sistem Rental Mobil",
-      category: "Web",
-      tech: "Web App",
-      description: "Sistem pemesanan rental mobil untuk melihat pilihan kendaraan dan mengajukan jadwal sewa.",
-      longDescription: "Sistem rental mobil MSJ Trans dirancang untuk membantu pelanggan melihat pilihan kendaraan, memilih tanggal dan lokasi penjemputan, lalu mengajukan pemesanan. Pengelola dapat meninjau permintaan sewa serta mengatur informasi kendaraan dan ketersediaannya.",
-      image: "/msj-trans-rental.svg",
+      category: "Mobile",
+      tech: "Mobile App",
+      description: "Aplikasi pemesanan rental mobil untuk melihat pilihan kendaraan dan mengajukan jadwal sewa.",
+      longDescription: "Aplikasi mobile rental mobil MSJ Trans dirancang untuk membantu pelanggan melihat pilihan kendaraan, memilih tanggal dan lokasi penjemputan, lalu mengajukan pemesanan. Pengelola dapat meninjau permintaan sewa serta mengatur informasi kendaraan dan ketersediaannya.",
+      image: msj1,
+      images: [msj1, msj2, msj3, msj4, msj5, msj6],
       tags: ["Rental Mobil", "Pemesanan Online", "Manajemen Kendaraan"],
+      imageOrientation: "portrait",
       demoUrl: "#",
       githubUrl: "#"
     },
     {
       id: 6,
       title: "Aplikasi Pembelajaran LPK Ilmiah",
-      category: "Web",
-      tech: "Learning Platform",
-      description: "Platform pembelajaran untuk mengakses materi pelatihan dan memantau progres belajar peserta LPK Ilmiah.",
-      longDescription: "Aplikasi pembelajaran LPK Ilmiah menyediakan ruang belajar digital bagi peserta untuk mengakses materi pelatihan, melihat program pembelajaran, dan memantau progres belajar. Berikut tautan video demo aplikasi.",
-      image: "/lpk-ilmiah-learning.svg",
+      category: "Mobile",
+      tech: "Mobile App",
+      description: "Aplikasi pembelajaran untuk mengakses materi pelatihan dan memantau progres belajar peserta LPK Ilmiah.",
+      longDescription: "Aplikasi mobile pembelajaran LPK Ilmiah menyediakan ruang belajar digital bagi peserta untuk mengakses materi pelatihan, melihat program pembelajaran, dan memantau progres belajar. Berikut tautan video demo aplikasi.",
+      image: lpk1,
+      images: [lpk1, lpk2, lpk3, lpk4],
       tags: ["E-Learning", "Manajemen Materi", "Progress Belajar"],
+      imageOrientation: "portrait",
       demoUrl: "https://drive.google.com/drive/folders/1ylAznegytk6DvaMI8wAN1laLEk9ZS3AY?usp=sharing",
       githubUrl: "#"
     }
